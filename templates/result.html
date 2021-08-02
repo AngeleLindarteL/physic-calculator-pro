@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tu resultado</title>
+    <link rel="stylesheet" href="../static/reset.css">
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+<a href={{ url_for("index") }} id="back">Volver</a>
+    <section id="char-tank">
+        <h1>Caracteristicas del Tanque</h1>
+        <div class="tanque">
+            <div class="tank-rep">
+                <figure class="boxmodel">
+                    <div class="bxmi"></div>
+                    <div class="bxmi"></div>
+                </figure>
+            </div>
+            <div class="tank-info">
+                <p class="tank-info">Alto:  {{obj.alto}}</p>
+                <p class="tank-info">Diametro: {{obj.diametro}}</p>
+                <p class="tank-info">Medida: {{obj.medida}}</p>
+                <p class="tank-info">Radio: {{obj.radio}}</p>
+                <p class="tank-info">{{obj.calcular_area_tanque()}}</p>
+                <p class="tank-info">{{obj.calcular_volumen_tanque()}}</p>
+            </div>
+        </div>
+    </section>
+    <section id="char-fill">
+        <div class="fill-rep">
+            <figure class="boxmodel">
+                <div class="bxmi"></div>
+                <div class="bxmi"></div>
+            </figure>
+        </div>
+        <div class="fill-info">
+            {%  if fillObj.quest == True %}
+                <h2>Se eligio llenar el tanque</h2>
+                <b>Se llenara con {{ fillObj.nombre }}</b>
+                <p>{{ obj.rellenar(fillObj)[0] }}</p>
+                {% if obj.rellenar(fillObj)[1] %}
+                    <p>El contenido cabe en el Tanque</p>
+                {% else %}
+                    <p>El contenido no cabe en el Tanque</p>
+                {% endif %}
+                {% else %}
+                    <h2>No se eligio algun contenido, porfavor intentelo nuevamente si quiere usar algun contenido para rellenar el tanque</h2>
+            {% endif %}
+        </div>
+    </section>
+</body>
+</html>

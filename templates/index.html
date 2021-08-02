@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="../static/reset.css">
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <h1>Proyecto #1 fisica</h1>
+    <section>
+        <form method="POST">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                <div class="form-input">{{ form.medida.label }} {{ form.medida }}</div>
+                <div class="form-input">{{ form.diametro.label }} {{ form.diametro }}</div>
+                <div class="form-input">{{ form.alto.label }} {{ form.alto }}</div>
+                <div class="form-input" id="check-box">{{ fillform.quest.label }}{{ fillform.quest }}</div>
+                <div class="form-input">{{ fillform.medidar.label }}{{ fillform.medidar }}</div>
+                <div class="form-input">{{ fillform.nombre.label }}{{ fillform.nombre}}</div>
+                <div class="form-input">{{ fillform.cantidad.label }}{{ fillform.cantidad }}</div>
+                <div class="form-input"><input type="submit" value="Enviar" id="send-button"></div>
+            </div>
+        </form>
+    </section>
+    <script src="../static/index.js"></script>
+</body>
+</html>
